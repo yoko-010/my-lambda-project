@@ -1,5 +1,5 @@
 def lambda_handler(event, context):
-    print("=== UPDATED ===")
+    print("===UPDATED===")
     return {
         'statusCode': 200,
         'body': 'Lambda updated via CodePipeline!'
