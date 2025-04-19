@@ -4,18 +4,18 @@ phases:
   install:
     runtime-versions:
       python: 3.11
-    commands:
-      - pip install -r requirements.txt -t .
   build:
     commands:
       - echo "Zipping source..."
-      - zip -r function.zip . 
+      - zip function.zip lambda_function.py
   post_build:
     commands:
       - echo "Deploying to Lambda..."
       - aws lambda update-function-code \
-          --function-name YOUR_FUNCTION_NAME \
+          --function-name my-lambda-project-handler \
           --zip-file fileb://function.zip
+
 artifacts:
   files:
     - function.zip
+
